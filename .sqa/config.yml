@@ -1,0 +1,42 @@
+config:
+  credentials: []
+  project_repos:
+    github.com/EOSC-synergy/sqaaas-tooling:
+      branch: release/2.0.0
+      repo: https://github.com/EOSC-synergy/sqaaas-tooling
+    gitlab.com/ml-ppa/pulsardt:
+      branch: main
+      repo: https://gitlab.com/ml-ppa/pulsardt
+environment:
+  JPL_DOCKERFORCEBUILD: enabled
+  JPL_KEEPGOING: enabled
+sqa_criteria:
+  QC.Acc:
+    repos:
+      gitlab.com/ml-ppa/pulsardt git:
+        commands:
+        - /usr/bin/env sh .sqa/script.cheeky-cinnamon-walrus.sh
+        container: qc.acc_lovely-carmine-fish
+  QC.Doc:
+    repos:
+      gitlab.com/ml-ppa/pulsardt find_doc_files.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.randy-rust-earwig.sh
+        container: qc.doc_tacky-olivine-toad
+      gitlab.com/ml-ppa/pulsardt git:
+        commands:
+        - /usr/bin/env sh .sqa/script.dorky-viridian-uakari.sh
+        container: qc.doc_gimpy-cardinal-bordeaux
+  QC.Lic:
+    repos:
+      gitlab.com/ml-ppa/pulsardt licensee:
+        commands:
+        - /usr/bin/env sh .sqa/script.snippy-yellow-cougar.sh
+        container: qc.lic_grumpy-flax-gar
+  QC.Ver:
+    repos:
+      gitlab.com/ml-ppa/pulsardt get_git_tags.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.snoopy-beige-frog.sh
+        container: qc.ver_wiggy-cyan-snake
+timeout: 5400
