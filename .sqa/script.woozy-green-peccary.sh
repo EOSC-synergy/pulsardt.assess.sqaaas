@@ -5,5 +5,5 @@
 
 (
 cd gitlab.com/ml-ppa/pulsardt &&
-    licensee detect . --confidence 60 --json
+    licensee detect . --confidence 60 --json 
 )

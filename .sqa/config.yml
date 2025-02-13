@@ -2,7 +2,7 @@ config:
   credentials: []
   project_repos:
     github.com/EOSC-synergy/sqaaas-tooling:
-      branch: release/2.0.0
+      branch: main
       repo: https://github.com/EOSC-synergy/sqaaas-tooling
     gitlab.com/ml-ppa/pulsardt:
       branch: main
@@ -15,28 +15,58 @@ sqa_criteria:
     repos:
       gitlab.com/ml-ppa/pulsardt git:
         commands:
-        - /usr/bin/env sh .sqa/script.cheeky-cinnamon-walrus.sh
-        container: qc.acc_lovely-carmine-fish
+        - /usr/bin/env sh .sqa/script.gloppy-persimmon-bonobo.sh
+        container: qc.acc_stinky-pumpkin-gerbil
   QC.Doc:
     repos:
       gitlab.com/ml-ppa/pulsardt find_doc_files.py:
         commands:
-        - /usr/bin/env sh .sqa/script.randy-rust-earwig.sh
-        container: qc.doc_tacky-olivine-toad
+        - /usr/bin/env sh .sqa/script.gloppy-denim-russel.sh
+        container: qc.doc_surly-scarlet-dingo
       gitlab.com/ml-ppa/pulsardt git:
         commands:
-        - /usr/bin/env sh .sqa/script.dorky-viridian-uakari.sh
-        container: qc.doc_gimpy-cardinal-bordeaux
+        - /usr/bin/env sh .sqa/script.snoopy-aquamarine-vulture.sh
+        container: qc.doc_pasty-viridian-zebra
+      gitlab.com/ml-ppa/pulsardt markdownlint:
+        commands:
+        - /usr/bin/env sh .sqa/script.muzzy-myrtle-setter.sh
+        container: qc.doc_bluesy-cerulean-kudu
+      gitlab.com/ml-ppa/pulsardt restructuredtext-lint:
+        commands:
+        - /usr/bin/env sh .sqa/script.nippy-tangerine-tiger.sh
+        container: qc.doc_snazzy-teal-macaque
   QC.Lic:
     repos:
       gitlab.com/ml-ppa/pulsardt licensee:
         commands:
-        - /usr/bin/env sh .sqa/script.snippy-yellow-cougar.sh
-        container: qc.lic_grumpy-flax-gar
+        - /usr/bin/env sh .sqa/script.woozy-green-peccary.sh
+        container: qc.lic_shabby-red-caracal
+  QC.Sec:
+    repos:
+      gitlab.com/ml-ppa/pulsardt bandit:
+        commands:
+        - /usr/bin/env sh .sqa/script.grumpy-yellow-fish.sh
+        container: qc.sec_jumpy-brass-caracal
+  QC.Sty:
+    repos:
+      gitlab.com/ml-ppa/pulsardt flake8:
+        commands:
+        - /usr/bin/env sh .sqa/script.ready-tan-okapi.sh
+        container: qc.sty_muggy-grey-monkey
+      gitlab.com/ml-ppa/pulsardt jsonlint:
+        commands:
+        - /usr/bin/env sh .sqa/script.bumpy-magenta-jaguar.sh
+        container: qc.sty_muzzy-rose-serval
+  QC.Uni:
+    repos:
+      gitlab.com/ml-ppa/pulsardt pytest:
+        commands:
+        - /usr/bin/env sh .sqa/script.snazzy-beige-audemer.sh
+        container: qc.uni_zippy-wisteria-saola
   QC.Ver:
     repos:
       gitlab.com/ml-ppa/pulsardt get_git_tags.py:
         commands:
-        - /usr/bin/env sh .sqa/script.snoopy-beige-frog.sh
-        container: qc.ver_wiggy-cyan-snake
+        - /usr/bin/env sh .sqa/script.ugly-mauve-panda.sh
+        container: qc.ver_homely-ivory-dodo
 timeout: 5400
